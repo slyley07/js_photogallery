@@ -1,0 +1,18 @@
+.img {
+  width: 400px;
+  display: inline-block;
+}
+
+.left, #big, .img, .right {
+  display: inline-block;
+}
+
+.left, .right {
+  vertical-align: top;
+  margin-top: 80px;
+}
+
+.container {
+  width: 550px;
+  margin: 0 auto;
+}
