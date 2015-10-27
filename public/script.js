@@ -1,45 +1,56 @@
-function html(thing) {
-  '<img src="public/images/' + thing + '">';
+var cartoons = ['adventure.png', 'avatar.jpg', 'bravest.png', 'gravity.png', 'regular.jpg', 'steven.png'];
+
+var cartoon = 'public/images/';
+
+var counter = 0;
+
+function getImage() {
+  var image = document.getElementById("img");
+  return image;
 }
 
-console.log(cartoons[i]);
+function getSrc(img) {
+  var image = getImage();
+  image = image.src;
+  return image;
+}
 
-function image(thang) {
-  cartoons = ['adventure.png', 'avatar.jpg', 'bravest.png', 'gravity.png', 'regular.png', 'steven.png'];
-      for (i= 0; i < cartoons.length; i++){
-        console.log(html(cartoons[i]));
-        thang.innerHTML = html(cartoons[i + 1]);
-        // break;
+function setSrc() {
+  var image = getImage();
+  image.src = cartoon + cartoons[counter];
+  return image;
+}
+
+function setCounter (dir) {
+  if (counter == null) {
+    counter = 0;
+  } else if (counter == cartoons.length - 1 && dir == "right" || counter == 0 && dir == "left") {
+    looper(dir);
+  } else if (counter != null && dir == "right") {
+    counter = counter + 1;
+  } else if (counter != null && dir == "left") {
+    counter = counter - 1;
   };
-}
+};
 
+function looper(dir) {
+  if (dir == "right") {
+    var image = getImage();
+    counter = 0
+    image.src = cartoon + cartoons[counter];
+  } else if (dir == "left") {
+    var image = getImage();
+    counter = cartoons.length - 1;
+    image.src = cartoon + cartoons[counter];
+  };
+};
 
+function righty() {
+  setCounter("right");
+  setSrc();
+};
 
-
-
-// $(document).ready(function() {
-//   $('.right').click(function(){
-//           // case cartoons[1]:
-//           //   html(cartoons[2]);
-//           //   break;
-//           // case cartoons[2];
-//           //   html(cartoons[3]);
-//           //   break;
-//           // case cartoons[3];
-//           //   html(cartoons[4])
-//
-//         }
-//
-//       }
-//
-//       // if ($('.big').html() !== 0 ) {
-//       //   console.log('<img src="public/images/' + cartoons[i] + '">');
-//       //   cartoons[i] = cartoons[i + 1]
-//       //
-//       // } else {
-//       //   console.log('<img src="public/images/' + cartoons[i] + '">', "no");
-//       // };
-//       // break;
-//     };
-//   });
-// })
+function lefty() {
+  setCounter("left");
+  setSrc();
+};
