@@ -4,12 +4,18 @@ var cartoon = 'public/images/';
 
 var counter = 0;
 
+
+
+// Start Add Big Image To container Div ----------------------------------------
+function createBig() {
+  document.getElementById('big').innerHTML += '<img src="public/images/' + cartoons[0] + '" id="img">'
+  createThumb();
+}
+// End Add Big Image To container Div ------------------------------------------
 function getImage() {
   var image = document.getElementById("img");
   return image;
 }
-
-
 // Start Add Thumbs To thumbContainer Div --------------------------------------
 function createThumb() {
   for (var i = 0; i < cartoons.length; i ++) {
