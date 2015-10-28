@@ -9,12 +9,20 @@ function getImage() {
   return image;
 }
 
-function getSrc(img) {
-  var image = getImage();
-  image = image.src;
-  return image;
-}
 
+// Start Add Thumbs To thumbContainer Div --------------------------------------
+function createThumb() {
+  for (var i = 0; i < cartoons.length; i ++) {
+    var image = getImage();
+    image = image.src;
+    document.getElementById('thumbContainer').innerHTML += '<img src="public/images/' + cartoons[i] + '" onclick="getThumb(' + i +')" class="thumb" alt="" />'
+    // console.log(div);
+  }
+}
+// End Add Thumbs To thumbContainer Div ----------------------------------------
+
+
+// Start Left-Right click functionality ----------------------------------------
 function setSrc() {
   var image = getImage();
   image.src = cartoon + cartoons[counter];
@@ -54,3 +62,19 @@ function lefty() {
   setCounter("left");
   setSrc();
 };
+
+// End Left-Right Click Functionality ------------------------------------------
+
+// Start Image Click Functionality ---------------------------------------------
+
+function getThumb(i) {
+  var thumb = document.getElementsByClassName('thumb')[i].src;
+  counter = i;
+  setImage(thumb);
+}
+
+function setImage(img) {
+  image = getImage();
+  image.src = img;
+}
+// End Image Click Functionality -----------------------------------------------

@@ -1,5 +1,6 @@
 #img {
   width: 400px;
+  height: 230px;
   display: inline-block;
 }
 
@@ -17,9 +18,14 @@
   margin: 0 auto;
 }
 
-.thumb, .thumb img{
+#thumbContainer {
+  width: 660px;
+  margin: 0 auto;
+}
+
+.thumb {
   width: 200px;
   height: 115px;
   display: inline-block;
-  margin: 0;
+  margin: 10px;
 }
